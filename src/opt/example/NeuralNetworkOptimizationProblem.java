@@ -9,6 +9,7 @@ import opt.NeighborFunction;
 import opt.ga.ContinuousAddOneMutation;
 import opt.ga.UniformCrossOver;
 import opt.ga.CrossoverFunction;
+import opt.prob.ProbabilisticOptimizationProblem;
 import opt.ga.GeneticAlgorithmProblem;
 import opt.ga.MutationFunction;
 import shared.DataSet;
@@ -22,7 +23,7 @@ import func.nn.NeuralNetwork;
  * @author Andrew Guillory gtg008g@mail.gatech.edu
  * @version 1.0
  */
-public class NeuralNetworkOptimizationProblem implements HillClimbingProblem, GeneticAlgorithmProblem {
+public class NeuralNetworkOptimizationProblem implements HillClimbingProblem, GeneticAlgorithmProblem, ProbabilisticOptimizationProblem {
 
     /**
      * The evaluation function
@@ -80,6 +81,15 @@ public class NeuralNetworkOptimizationProblem implements HillClimbingProblem, Ge
     public Instance neighbor(Instance d) {
         return neighbor.neighbor(d);
     }
+
+    /**
+     * @see opt.prob.ProbalisticOptimizationProblem
+     */
+    public Distribution getDistribution() {
+	return dist;
+    }
+
+
     
 
     /**
